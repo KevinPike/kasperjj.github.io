@@ -186,10 +186,6 @@
         if(blocks[i].mark){
           blocks[i].number=-1;
           score+=num*multiplier;
-          if(score>hiscore){
-            hiscore=score;
-            localStorage["numbers-hiscore"]=hiscore;
-          }
           scoreAdd+=num*multiplier;
         }
       }
@@ -211,6 +207,12 @@
           score+=25;
           addBonusText("5+ Group, 25 points");
         }
+
+        if(score>hiscore){
+          hiscore=score;
+          localStorage["numbers-hiscore"]=hiscore;
+        }
+
         scheduleFunction(frameTime,collapseBlocks);
       });
     }
